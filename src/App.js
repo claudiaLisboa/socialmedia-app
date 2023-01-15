@@ -1,18 +1,16 @@
 
-import React from "react";
+import React, { useState } from "react";
 import Login from './components/Loging'
 import  './App.css'
 
 function App() {
+ const [user, setUser] = useState('');
 
-  let user = "";
 
   if (!user){
-
-    return <Login />;
-    
-
+    return <Login setUser={setUser}/>;
   }
+  
   return (
     <div >
        <p>Dora Linda</p>

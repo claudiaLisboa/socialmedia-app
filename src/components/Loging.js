@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Login(){
+function Login({setUser}){
+    const [username, setUsername] = useState('');
 
-    return ( <div>
+    function handleSubmit(event){
+        event.preventDefault();
+        setUser(username);
+    }
+
+    return ( 
+            <div>
                 <h2>Login</h2>
-                <div class="container"> 
+                <div className="container"> 
                    <div className="formdiv">
-                    <form>
-                        <input type="text" className="inputUser" placeholder="Input username"/>
+                    <form onSubmit={handleSubmit}>
+                        <input 
+                            onChange={event => setUsername(event.target.value)} 
+                            className="inputUser" 
+                            placeholder="Input username"
+                        />
                         <div className="form-group">
                             <div className="col-sm-offset-2 col-sm-10">
                                 <button type="submit" className="btnSubmit">Submit</button>
@@ -16,7 +27,8 @@ function Login(){
                     </form>
                     </div>
                 </div>
-            </div>)
+            </div>
+            )
 }
 
 export default Login;
