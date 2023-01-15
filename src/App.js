@@ -1,11 +1,21 @@
 
-import './App.css';
+import React from "react";
+import Login from './components/Loging'
 
 function App() {
+
+  let user = "";
+
+  if (!user){
+
+    return <Login />;
+    
+
+  }
   return (
-    <div className="App">
-      
-      <p>DORA LINDA </p>
+    <div >
+       <p>Dora Linda</p>
+   
     </div>
   );
 }
