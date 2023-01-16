@@ -21,7 +21,7 @@ function Login({setUser}){
                         />
                         <div className="form-group">
                             <div className="col-sm-offset-2 col-sm-10">
-                                <button type="submit" className="btnSubmit">Submit</button>
+                                <button type="submit" className="btnSubmit">SUBMIT</button>
                                 </div>
                             </div>
                     </form>

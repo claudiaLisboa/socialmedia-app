@@ -9,7 +9,7 @@ function Header({user, setUser}){
                 onClick={() => setUser('')} 
                 className="btnLogout"
             >
-                Logout
+                LOGOUT
             </button>
         </div>
     ) ;

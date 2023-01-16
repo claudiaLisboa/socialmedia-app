@@ -1,7 +1,8 @@
 
 import React, { useEffect, useState } from "react";
 import Login from './components/Loging'
-import Header from "./components/Header";
+import Header from "./components/Header"
+import CreatePost from "./components/CreatePost"
 import  './App.css'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
   return (
     <div >
       <Header user={user} setUser={setUser}/>
+      <CreatePost />
     </div>
   );
 }
