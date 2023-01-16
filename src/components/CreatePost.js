@@ -1,7 +1,7 @@
 import React, {  useState, useRef } from "react"
 
 
-function CreatePost({user, handleAddPost){
+function CreatePost({user, handleAddPost }){
 
     const [content, setContent] =  useState('');
     const [image, setImage] = useState(null);

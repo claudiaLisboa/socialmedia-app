@@ -33,20 +33,9 @@ function App() {
   return (
     <div>
       <Header user={user} setUser={setUser}/>
-      <CreatePost />
-      {posts.map((post, index) => (
-        <React.Fragment key={index}>
-          {post.image && (
-             <img  
-               style={{height: 300, width:250, objectFit: 'cover'}}
-                src={URL.createObjectURL(post.image)}
-                alt="Post cover"
-             />
-          )}
-          <p>{post.content}</p>
-          <div>{user}</div>
-          </React.Fragment>
-      ))}
+      <CreatePost user={user} handleAddPost={handleAddPost} />
+      <PostList posts={posts} />
+      <button onClick={() => setCount(prev => prev + 1)}>{count} +</button>
       </div>
   );
 }
