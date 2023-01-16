@@ -1,34 +1,42 @@
-import React, { useEffect, useState } from "react"
+import React, {  useState, useRef } from "react"
 
 
-function CreatePost(){
+function CreatePost({user, handleAddPost){
 
     const [content, setContent] =  useState('');
     const [image, setImage] = useState(null);
+    const imageInputRef = useRef();
 
-return (
-<div> 
-    <h1> Create New Post</h1>
-    <form>
-        <input
-            type="tyext"
-            placeholder="Add Post Content"
-            onChange={event => setContent(event.target.value)}
-        />
-        <input
-            type="file"
-            onChange={event => setImage(event.target.files[0])}
-        />
-        <button type="submit" className="btnPost">SUBMIT POST</button>
-    </form>
-    <p>{content}</p>
-    {image &&<img
-        alt="imagePost"
-        style={{height: 100, width:200, objectFit: 'cover'}}
-        src={URL.createObjectURL(image)}
-    />}
-</div>
-);
+    function handleSubmit(event){
+        event.preventDefault();
+        const post ={ content, image, user};
+        handleAddPost(post);
+        setContent("");
+        setImage(null);
+        imageInputRef.current.value = '';
+
+    }
+
+    return (
+        <div> 
+            <h1> Create New Post</h1>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="tyext"
+                    placeholder="Add Post Content"
+                    onChange={event => setContent(event.target.value)}
+                    value={content}
+                />
+                <input
+                    type="file"
+                    onChange={event => setImage(event.target.files[0])}
+                    ref={imageInputRef}
+                />
+                <button type="submit" className="btnPost">SUBMIT POST</button>
+            </form>
+        </div>
+    );
 }
 
 export default CreatePost;
+
