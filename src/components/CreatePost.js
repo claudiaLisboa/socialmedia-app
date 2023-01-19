@@ -22,13 +22,15 @@ function CreatePost({user, handleAddPost }){
             <h1> Create New Post</h1>
             <form onSubmit={handleSubmit}>
                 <input
-                    type="tyext"
+                    type="text"
+                    className="inputContent"
                     placeholder="Add Post Content"
                     onChange={event => setContent(event.target.value)}
                     value={content}
                 />
                 <input
                     type="file"
+                    className="inputFile"
                     onChange={event => setImage(event.target.files[0])}
                     ref={imageInputRef}
                 />

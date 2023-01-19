@@ -35,7 +35,7 @@ function App() {
       <Header user={user} setUser={setUser}/>
       <CreatePost user={user} handleAddPost={handleAddPost} />
       <PostList posts={posts} />
-      <button onClick={() => setCount(prev => prev + 1)}>{count} +</button>
+      <button className="btnCount" onClick={() => setCount(prev => prev + 1)}>{count} +</button>
       </div>
   );
 }
