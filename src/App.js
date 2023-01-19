@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import Login from './components/Loging'
 import Header from "./components/Header"
 import CreatePost from "./components/CreatePost"
@@ -9,9 +9,9 @@ import  './App.css'
 const functionsCount = new Set();
 
 function App() {
-  const [user, setUser] = React.useState("reed");
-  const [posts, setPosts] = React.useState([]);
-  const [count, setCount] = React.useState(0);
+  const [user, setUser] = useState(""); // will display user login when user public the post
+  const [posts, setPosts] = useState([]);
+  const [count, setCount] = useState(0);
 
   React.useEffect(() => {
     document.title = user ? `${user}'s Feed` : "Please login";
