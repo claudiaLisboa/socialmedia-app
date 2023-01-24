@@ -1,10 +1,13 @@
 
-import React, {  useState } from "react";
+import React, {  createContext, useState } from "react";
 import Login from './components/Loging'
 import Header from "./components/Header"
 import CreatePost from "./components/CreatePost"
 import PostList from "./components/PostList"
 import  './App.css'
+
+
+const UserContext = createContext();
 
 const functionsCount = new Set();
 
@@ -31,12 +34,12 @@ function App() {
     return <Login setUser={setUser} />;
   }
   return (
-    <div>
+    <UserContext.Provider value={user}>
       <Header user={user} setUser={setUser}/>
       <CreatePost user={user} handleAddPost={handleAddPost} />
-      <PostList posts={posts} />
+      <PostList  posts={posts} />
       <button className="btnCount" onClick={() => setCount(prev => prev + 1)}>{count} +</button>
-      </div>
+    </UserContext.Provider>
   );
 }
 

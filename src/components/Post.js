@@ -1,9 +1,13 @@
+import { current } from "page";
 import React from "react";
 
 function Post({ image, content, user }) {
+  
   return (
-    <>
-      {image && (
+    <UserContext.Consumer >
+    {currentUser => (
+      <>
+        {image && (
         <img
           style={{ height: 300, width:250, objectFit: "cover" }}
           src={URL.createObjectURL(image)}
@@ -11,8 +15,10 @@ function Post({ image, content, user }) {
         />
       )}
       <p>{content}</p>
-      <div>{user}</div>
-    </>
+      <div style={{ color: currentUser === && 'green' }}>{user}</div>
+      </>
+    )}
+    </UserContext.Consumer>
   );
 }
 
