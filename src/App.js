@@ -7,14 +7,14 @@ import PostList from "./components/PostList"
 import  './App.css'
 
 
-const UserContext = createContext();
+export const UserContext = createContext();
 
-const functionsCount = new Set();
+
 
 function App() {
   const [user, setUser] = useState(""); // will display user login when user public the post
   const [posts, setPosts] = useState([]);
-  const [count, setCount] = useState(0);
+ 
 
   React.useEffect(() => {
     document.title = user ? `${user}'s Feed` : "Please login";
@@ -27,8 +27,7 @@ function App() {
     [posts]
   );
 
-  functionsCount.add(handleAddPost);
-  console.log(functionsCount);
+
 
   if (!user) {
     return <Login setUser={setUser} />;
@@ -38,7 +37,7 @@ function App() {
       <Header user={user} setUser={setUser}/>
       <CreatePost user={user} handleAddPost={handleAddPost} />
       <PostList  posts={posts} />
-      <button className="btnCount" onClick={() => setCount(prev => prev + 1)}>{count} +</button>
+      
     </UserContext.Provider>
   );
 }
