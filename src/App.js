@@ -4,6 +4,7 @@ import Login from './components/Loging'
 import Header from "./components/Header"
 import CreatePost from "./components/CreatePost"
 import PostList from "./components/PostList"
+import postReducer from "./PostReducer";
 import  './App.css'
 
 
@@ -14,7 +15,7 @@ export const PostContext = createContext({
 
 function App() {
   const initialPostState = useContext(PostContext);
-  const [state, dispatch] = useReducer(()=> {}, initialPostState);
+  const [state, dispatch] = useReducer(postReducer, initialPostState);
   const [user, setUser] = useState(""); // will display user login when user public the post
   //const [posts, setPosts] = useState([]);
  
