@@ -38,6 +38,9 @@ function CreatePost({user, handleAddPost }){
                 />
                 <button type="submit" className="btnPost">SUBMIT POST</button>
             </form>
+            <div className="footer">
+                 <span className="created-by">Created by Claudia Lisboa - For studying purpose</span> 
+            </div>
         </div>
     );
 }

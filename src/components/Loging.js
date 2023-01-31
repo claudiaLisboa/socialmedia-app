@@ -26,6 +26,9 @@ return (
                     </div>
             </form>
             </div>
+            <div className="footer">
+                 <span className="created-by">Created by Claudia Lisboa - For studying purpose</span> 
+            </div>
         </div>
     </div>
  )
