@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import {UserContext} from '../App';
+import {UserContext, PostContext} from '../App';
 
-function Post({ image, content, user }) {
+function Post({ image, content, user, id }) {
   const currentUSer = useContext(UserContext);
+  useContext(PostContext);
   const isCurrentUser = currentUSer === user;
 
 
@@ -17,6 +18,7 @@ function Post({ image, content, user }) {
           )}
           <p>{content}</p>
           <div style={{ color: isCurrentUser && "green"}}>{user}</div>
+          {isCurrentUser && <button oncC>Delete</button>}
     </>
   );                                                                                                                                       
 }
