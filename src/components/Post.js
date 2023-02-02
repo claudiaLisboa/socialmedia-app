@@ -3,10 +3,12 @@ import {UserContext, PostContext} from '../App';
 
 function Post({ image, content, user, id }) {
   const currentUSer = useContext(UserContext);
-  useContext(PostContext);
+  const { dispatch } = useContext(PostContext);
   const isCurrentUser = currentUSer === user;
 
-
+  function handleDeletePost(){
+   dispatch({ type: "DELETE_POST", payload:{ id }});
+  }
   return (
       <>
           {image && (
@@ -18,7 +20,7 @@ function Post({ image, content, user, id }) {
           )}
           <p>{content}</p>
           <div style={{ color: isCurrentUser && "green"}}>{user}</div>
-          {isCurrentUser && <button oncC>Delete</button>}
+          {isCurrentUser && <button onClick={() => dispatch}>Delete</button>}
     </>
   );                                                                                                                                       
 }

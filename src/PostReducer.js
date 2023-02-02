@@ -7,8 +7,9 @@ function postReducer(state, action){
             };
         }
         case "DELETE_POST" :{
-            return{
-
+            const deletePostId = action.playload.id;
+            return{ 
+                post: state.post.filter(post => post.id !== deletePostId)
             };
         }
         default:
