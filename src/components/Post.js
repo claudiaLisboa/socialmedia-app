@@ -20,7 +20,9 @@ function Post({ image, content, user, id }) {
           )}
           <p>{content}</p>
           <div style={{ color: isCurrentUser && "green"}}>{user}</div>
-          {isCurrentUser && <button onClick={() => dispatch}>Delete</button>}
+          <div>
+              {isCurrentUser && <button onClick={handleDeletePost}>Delete</button>}
+          </div>
     </>
   );                                                                                                                                       
 }
